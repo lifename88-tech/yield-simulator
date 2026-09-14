@@ -9,7 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test": "tsx src/utils/calculations.test.ts"
+    "test": "tsx src/utils/calculations.test.ts && tsx tests/ui-contract.test.ts"
   },
   "dependencies": {
     "react": "^19.2.8",

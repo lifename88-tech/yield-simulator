@@ -54,7 +54,7 @@ export const InputForm: React.FC<InputFormProps> = ({ input, onChange, onSample,
           </div>
         </div>
         
-        <div className="input-row">
+        <div className="money-fields">
           <div className="input-group">
             <label htmlFor="monthlyRent">月額家賃</label>
             <div className="input-with-unit">
@@ -102,7 +102,7 @@ export const InputForm: React.FC<InputFormProps> = ({ input, onChange, onSample,
             空室率
             <span className="hint">年間家賃のうち、空室によって得られない割合</span>
           </label>
-          <div className="input-with-unit slider-unit">
+          <div className="vacancy-control">
             <input
               type="range"
               id="vacancyRate"
@@ -111,17 +111,26 @@ export const InputForm: React.FC<InputFormProps> = ({ input, onChange, onSample,
               min="0"
               max="100"
               step="1"
-              className="slider"
+              className="vacancy-slider"
+              aria-valuetext={`${input.vacancyRate}%`}
+              style={{ '--vacancy-progress': input.vacancyRate } as React.CSSProperties}
             />
-            <div className="slider-value">
+            <div className="vacancy-scale" aria-hidden="true">
+              <span>0%</span>
+              <span>50%</span>
+              <span>100%</span>
+            </div>
+            <div className="vacancy-readout">
+              <output htmlFor="vacancyRate">{input.vacancyRate}%</output>
               <input
                 type="number"
+                aria-label="空室率を数値で入力"
                 value={input.vacancyRate}
                 onChange={(e) => handleChange('vacancyRate', Math.min(100, Math.max(0, parseFloat(e.target.value) || 0)))}
                 min="0"
                 max="100"
                 step="1"
-                className="number-input"
+                className="vacancy-number-input"
               />
               <span className="unit">%</span>
             </div>

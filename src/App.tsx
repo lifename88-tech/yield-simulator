@@ -16,6 +16,7 @@ function App() {
   // 入力リセット
   const handleReset = () => {
     setInput(DEFAULT_INPUT);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
   
   // サンプルデータ適用

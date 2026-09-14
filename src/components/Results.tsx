@@ -33,17 +33,15 @@ export const Results: React.FC<ResultsProps> = ({ result }) => {
         
         <div className="key-metrics">
           <div className="metric primary">
-            <span className="metric-label">表面利回り</span>
+            <span className="metric-label">満室想定の利回り</span>
             <span className="metric-value">{formatYield(result.grossYield)}<span className="unit">%</span></span>
-            <span className="metric-desc">広告上の利回り</span>
+            <span className="metric-desc">年間家賃収入をもとにした目安</span>
           </div>
-          
-          <div className="metric-divider">→</div>
-          
+
           <div className="metric primary highlight">
             <span className="metric-label">実質利回り</span>
             <span className="metric-value">{formatYield(result.netYield)}<span className="unit">%</span></span>
-            <span className="metric-desc">空室・経費考慮後</span>
+            <span className="metric-desc">空室・経費を反映</span>
           </div>
         </div>
         

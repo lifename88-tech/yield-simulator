@@ -117,63 +117,19 @@ ls dist/
 
 ## Cloudflare Pages への公開
 
-### 方法1: Wrangler CLI（推奨）
-
-```bash
-# Wranglerインストール（未安装の場合）
-npm install -g wrangler
-
-# プロジェクトルートで
-npx wrangler pages deploy dist
-```
-
-### 方法2: GitHub Actions
-
-```yaml
-# .github/workflows/deploy.yml
-name: Deploy to Cloudflare Pages
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm ci
-      - run: npm run build
-      - uses: cloudflare/pages-action@v1
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: yield-simulator
-          directory: dist
-```
-
-### Cloudflare 設定
+### 設定手順
 
 1. [Cloudflare Dashboard](https://dash.cloudflare.com/) にログイン
-2. Workers & Pages → Create Application → Pages → Connect to Git
-3. リポジトリを選択
-4. Build settings:
-   - Build command: `npm run build`
-   - Build output directory: `dist`
-5. Deploy
+2. **Workers & Pages** → **Create Application** → **Pages** → **Connect to Git**
+3. GitHub アカウントを接続し、リポジトリ `yield-simulator` を選択
+4. ビルド設定：
+   - **Build command**: `npm run build`
+   - **Build output directory**: `dist`
+5. **Save and Deploy**
 
-## Vercel への公開
+### 自動デプロイ
 
-```bash
-# Vercel CLI
-npm i -g vercel
-vercel deploy dist
-```
-
-または Vercel Dashboard から GitHub リポジトリを接続。
+main ブランチに push するだけで、Cloudflare Pages が自動的にビルド・公開します。
 
 ## 今後の拡張候補
 

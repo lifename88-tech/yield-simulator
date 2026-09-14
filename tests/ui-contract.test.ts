@@ -33,6 +33,12 @@ expectContract(
 );
 
 expectContract(
+  styles.includes('.vacancy-slider::-webkit-slider-runnable-track')
+    && styles.includes('.vacancy-slider::-moz-range-track'),
+  'ブラウザごとに空室率のレールを明確に描画する',
+);
+
+expectContract(
   styles.includes('.money-fields'),
   '金額入力は整列用の専用グリッドを使う',
 );

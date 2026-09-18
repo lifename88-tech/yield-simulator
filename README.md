@@ -115,21 +115,19 @@ npm run build
 ls dist/
 ```
 
-## Cloudflare Pages への公開
+## 公開（Cloudflare Pages）
 
-### 設定手順
+公開URL: https://yield-simulator-aistudio.pages.dev/ （Cloudflare Pages プロジェクト `yield-simulator-aistudio`）
 
-1. [Cloudflare Dashboard](https://dash.cloudflare.com/) にログイン
-2. **Workers & Pages** → **Create Application** → **Pages** → **Connect to Git**
-3. GitHub アカウントを接続し、リポジトリ `yield-simulator` を選択
-4. ビルド設定：
-   - **Build command**: `npm run build`
-   - **Build output directory**: `dist`
-5. **Save and Deploy**
+公開は全ツール共通のスクリプトで行います（テスト → ビルド → アップロード → 公開内容の照合まで自動）。
 
-### 自動デプロイ
+```bash
+cd "/Users/user/Documents/🟫web-team"
+node scripts/deploy-tool.mjs deploy yield-simulator
+```
 
-main ブランチに push するだけで、Cloudflare Pages が自動的にビルド・公開します。
+- **GitHub に push しても公開サイトは更新されません。** GitHub はソースの保管用です。
+- ルールの詳細は `/Users/user/Documents/🟫web-team/deploy/README.md` を参照してください。
 
 ## 今後の拡張候補
 

@@ -1,0 +1,77 @@
+/* DESIGN TOKENS — OWNERIS 案A（淡い青みのグレー地 × 濃紺の墨 × 会社色の帯 × 橙のCTA） */
+:root,
+[data-style="minimal"] {
+  /* Color — surfaces */
+  --bg:            #F3F6FA;
+  --surface:       #FFFFFF;
+  --surface-dim:   #E9EEF5;
+  --ink:           #17233A;
+  --ink-2:         #4A5A72;
+  --ink-3:         #5A6673;   /* 12px 前後でも WCAG AA 4.5:1 を満たす */
+  --hairline:      #E1E7F0;
+  --accent:        #2563A8;   /* 既定の1色（青） */
+  --accent-ink:    #FFFFFF;
+  --accent-soft:   #E9EFF6;   /* app 側で color-mix により再計算 */
+  --cta:           #F58A2E;   /* 行動ボタン（橙）。文字は --ink */
+  --cta-ink:       #17233A;
+  --inverse-bg:    #17233A;
+  --inverse-ink:   #F3F6FA;
+
+  /* Typography — 外部フォントは読み込まない */
+  --font-display: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic Medium", "Yu Gothic", "Noto Sans JP", sans-serif;
+  --font-body:    "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+  --font-latin:   "Helvetica Neue", "Inter", "Segoe UI", Arial, sans-serif;
+  --fs-hero:      clamp(2rem, 4.2vw, 3rem);
+  --fs-h1:        clamp(1.7rem, 3.2vw, 2.25rem);
+  --fs-h2:        clamp(1.4rem, 2.2vw, 1.7rem);
+  --fs-h3:        1.15rem;
+  --fs-body:      1rem;
+  --fs-small:     .875rem;
+  --fs-caption:   .75rem;
+  --lh-tight:     1.25;
+  --lh-body:      1.8;
+  --ls-wide:      .18em;
+  --ls-body:      .02em;
+
+  /* Shape & depth */
+  --radius-s:     12px;
+  --radius-m:     16px;
+  --radius-l:     22px;
+  --radius-pill:  999px;
+  --shadow-1:     0 8px 24px -14px rgba(23,35,58,.22);
+  --shadow-2:     0 18px 40px -22px rgba(23,35,58,.32);
+  --border:       1px solid var(--hairline);
+
+  /* Spacing (8pxグリッド) */
+  --sp-1: 8px;  --sp-2: 16px; --sp-3: 24px; --sp-4: 32px;
+  --sp-5: 48px; --sp-6: 64px; --sp-7: 96px; --sp-8: 128px;
+  --container:    1240px;
+  --section-pad:  var(--sp-7);
+
+  /* Motion */
+  --ease:         cubic-bezier(.22,.61,.36,1);
+  --ease-expo:    cubic-bezier(.26,1,.48,1);
+  --dur:          .3s;
+  --dur-slow:     .9s;
+}
+
+/* Chart series（検証済みデータ可視化パレット） */
+:root, [data-style] {
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --series-3: #1baf7a;
+  --grid-hairline: #e1e0d9;
+  --chart-muted:   #8C949B;
+}
+
+/* Status */
+:root, [data-style] {
+  --status-good:     #0ca30c;
+  --status-warning:  #b97a00;
+  --status-serious:  #c05a2e;
+  --status-critical: #d03b3b;
+  --status-good-soft:     #E2F4E2;
+  --status-warning-soft:  #FCF0D8;
+  --status-serious-soft:  #FAE6DC;
+  --status-critical-soft: #FADEDE;
+}
